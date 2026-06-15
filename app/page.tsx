@@ -1,14 +1,7 @@
 import EventCard from '@/components/EventCard'
 import ExploreBtn from '@/components/ExploreBtn'
+import {events} from '@/lib/constants'
 
-const events = [{
-  title: 'Github Summit',
-  image: '/flow2.png',
-  slug: 'github',
-  location: 'SanFrancisco',
-  date: '2026-06-17',
-  time: '9:00pm'
-}]
 
 const page = () => {
   return (
@@ -21,9 +14,9 @@ const page = () => {
       
       <div className='mt-20 space-y-10 px-4'>
         <h2 className='font-bold'>Featured Events</h2>
-        <ul className='flex gap-5 max-md:flex-col max-md:items-center '>
+        <ul className='flex flex-row flex-wrap gap-5 max-md:flex-col max-md:items-center lg:justify-center '>
           {events.map((event) => (
-            <li key={event.title}>
+            <li key={event.title} className='border border-gray-200/70 py-2 px-3 rounded-lg'>
               <EventCard {...event} />
             </li>
           ))}

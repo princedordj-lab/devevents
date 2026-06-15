@@ -12,16 +12,16 @@ interface Props{
     time: string;
 }
 
-const EventCard = ({title, image, location, date, time}: Props) => {
+const EventCard = ({title, image,slug, location, date, time}: Props) => {
   return (
     <div>
-      <Link href={"/events"}>
+      <Link href={`/events/${slug}`}>
         <Image
           src={image}
           alt={title}
           width={410}
           height={200}
-          className="object-cover rounded-xl"
+          className="object-cover rounded-xl h-70"
         />
         <div className="flex flex-col gap-2 mt-2">
           <div className="flex gap-2 items-center text-[12px]">

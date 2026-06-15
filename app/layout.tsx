@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-linear-to-bl from-green-950/90 to-black">
       <Navbar />
-      <body className="min-h-screen  flex flex-col">
+      <body className="min-h-screen  flex flex-col pb-10">
         <main> {children}</main>
       </body>
     </html>
