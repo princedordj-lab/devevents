@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "lucide-react": "^1.18.0",
+    "mongoose": "^9.7.0",
     "next": "16.2.9",
     "posthog-js": "^1.386.8",
     "posthog-node": "^5.21.2",
