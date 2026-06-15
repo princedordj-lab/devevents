@@ -7,7 +7,7 @@ const Navbar = () => {
       <nav className=" flex items-center justify-between bg-black/40 py-4 max-sm:py-5 px-4 backdrop-blur-md">
         <Link href={"/"} className="flex items-center gap-1">
           <Image
-            src={"/flow2.png"}
+            src={"/logo.png"}
             alt="Logo"
             width={50}
             height={50}
