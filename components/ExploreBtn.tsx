@@ -14,7 +14,7 @@ const ExploreBtn = () => {
         type="button"
         id="explore-btn"
         onClick={handleExploreClick}
-        className="flex gap-2 items-center justify-center rounded-full p-4 bg-indigo-900/50 max-sm:w-full "
+        className="flex gap-2 items-center justify-center rounded-full p-4 bg-indigo-700/50 max-sm:w-full "
       >
         <a
           href="#events"
