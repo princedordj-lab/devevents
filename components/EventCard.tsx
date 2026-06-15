@@ -1,7 +1,10 @@
+'use client'
+
 import { Calendar, MapPin } from 'lucide-react';
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import posthog from 'posthog-js'
 
 interface Props{
     title: string;
@@ -13,9 +16,18 @@ interface Props{
 }
 
 const EventCard = ({title, image,slug, location, date, time}: Props) => {
+  const handleCardClick = () => {
+    posthog.capture("event_card_clicked", {
+      event_title: title,
+      event_slug: slug,
+      event_location: location,
+      event_date: date,
+    });
+  };
+
   return (
     <div>
-      <Link href={`/events/${slug}`}>
+      <Link href={`/events/${slug}`} onClick={handleCardClick}>
         <Image
           src={image}
           alt={title}
