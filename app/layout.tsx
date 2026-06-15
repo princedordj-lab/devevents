@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-linear-to-bl from-green-950/90 to-black">
+    <html lang="en" className="bg-linear-to-bl from-indigo-950/90 to-black">
       <Navbar />
       <body className="min-h-screen  flex flex-col pb-10">
         <main> {children}</main>
