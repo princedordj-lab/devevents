@@ -14,16 +14,16 @@ const ExploreBtn = () => {
         type="button"
         id="explore-btn"
         onClick={handleExploreClick}
-        className="flex gap-2 items-center justify-center rounded-full p-4 bg-indigo-700/50 max-sm:w-full "
+        className="flex gap-2 items-center justify-center rounded-full p-5 bg-indigo-700/50 max-sm:w-full "
       >
         <a
           href="#events"
-          className="text-[14px] bg-transparent w-full flex items-center justify-center gap-2 group "
+          className=" bg-transparent w-full flex items-center justify-center gap-2  "
         >
-          <h2>Explore Events</h2>
+          <h2 className="text-[16px]">Explore Events</h2>
           <ArrowDown
             size={24}
-            className="bg-transparent opacity-0 group-hover:opacity-100"
+            className="bg-transparent "
           />
         </a>
       </button>
