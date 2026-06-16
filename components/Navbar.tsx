@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 z-10">
+    <div className="sticky top-0 z-10">
       <nav className=" flex items-center justify-between bg-black/40 py-4 max-sm:py-5 px-4 backdrop-blur-md">
         <Link href={"/"} className="flex items-center gap-1">
           <Image
@@ -22,7 +22,7 @@ const Navbar = () => {
           <Link href={"/create"}>Create Event</Link>
         </div>
       </nav>
-    </header>
+    </div>
   );
 }
 

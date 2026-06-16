@@ -18,7 +18,7 @@ const ExploreBtn = () => {
       >
         <a
           href="#events"
-          className="text-lg bg-transparent w-full flex items-center justify-center gap-2 group "
+          className="text-[14px] bg-transparent w-full flex items-center justify-center gap-2 group "
         >
           <h2>Explore Events</h2>
           <ArrowDown

@@ -13,9 +13,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-linear-to-bl from-indigo-950/90 to-black">
-      <Navbar />
-      <body className="min-h-screen  flex flex-col pb-10">
+    <html lang="en" className="">
+      <body className="min-h-screen bg-linear-to-bl from-indigo-950/90 to-black  flex flex-col pb-10">
+        <Navbar />
         <main> {children}</main>
       </body>
     </html>
