@@ -9,7 +9,7 @@ const EventDetailClient = ({ event }: { event: IEvent }) => {
   const [submitted, setSubmitted] = useState(false);
   
   const AgendaCard = ({ agendaItem }: { agendaItem: string }) => (
-    <div className="flex">
+    <div className="flex items-center gap-2">
       <p>{agendaItem}</p>
     </div>
   )
@@ -74,9 +74,9 @@ const EventDetailClient = ({ event }: { event: IEvent }) => {
           </div>
           <div className='mt-6'>
             <h2 className='font-bold'>Agenda</h2>
-            <ul className='list-disc list-inside'>
+            <ul className='list-disc mt-2 flex flex-col gap-4'>
               {event.agenda.map((agendaItem, index) => (
-                <li key={index}><AgendaCard agendaItem={agendaItem}  /></li>
+                <li key={index} className='ml-4'><AgendaCard agendaItem={agendaItem}  /></li>
               ))}
             </ul>
           </div>
