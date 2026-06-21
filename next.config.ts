@@ -2,9 +2,17 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  experimental: {
-    turbopackFileSystemCacheForBuild: true
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/dfntqnq3v/**",
+      },
+    ],
   },
+ 
   async rewrites() {
     return [
       {
