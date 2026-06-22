@@ -18,7 +18,7 @@ const page = async () => {
         <ExploreBtn />
       </div>
       
-      <div className='mt-20 space-y-10 px-4'>
+      <div className='mt-20 space-y-10 px-4' id='events'>
         <h2 className='font-bold'>Featured Events</h2>
         <ul className='flex flex-row flex-wrap gap-5 max-md:flex-col max-md:items-center  '>
           {events && events.length > 0 && events.map((event:IEvent) => (
