@@ -1,5 +1,5 @@
 'use client'
-import {useState} from 'react'
+import { useState } from 'react'
 import { IEvent } from '@/database/event.model'
 import { Calendar, Clock, Computer, MapPin, RefreshCw, Users, House, Notebook } from 'lucide-react'
 import Image from 'next/image'
@@ -7,6 +7,31 @@ import Image from 'next/image'
 const EventDetailClient = ({ event }: { event: IEvent }) => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleBooking = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch(`/api/events/${event.slug}/book`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await response.json();
+        alert(data.message || "Failed to create booking");
+      }
+    } catch {
+      alert("An unexpected error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
   
   const AgendaCard = ({ agendaItem }: { agendaItem: string }) => (
     <div className="flex items-center gap-2">
@@ -107,8 +132,7 @@ const EventDetailClient = ({ event }: { event: IEvent }) => {
           </>) : (
             <>
            <form
-            action={`/api/events/${event.slug}/book`}
-            method="POST"
+            onSubmit={handleBooking}
             className="mt-4 w-full flex flex-col"
           >
             <input
@@ -122,9 +146,10 @@ const EventDetailClient = ({ event }: { event: IEvent }) => {
             />
             <button
               type="submit"
-              className="mt-4 bg-indigo-600 hover:bg-indigo-700 transition-colors px-7 py-5 rounded-lg font-medium text-white "
+              disabled={loading}
+              className="mt-4 bg-indigo-600 hover:bg-indigo-700 transition-colors px-7 py-5 rounded-lg font-medium text-white disabled:opacity-50"
             >
-              Book Now
+              {loading ? "Booking..." : "Book Now"}
             </button>
           </form></>)}
          
