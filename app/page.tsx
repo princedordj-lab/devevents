@@ -20,9 +20,9 @@ const page = async () => {
       
       <div className='mt-20 space-y-10 px-4' id='events'>
         <h2 className='font-bold'>Featured Events</h2>
-        <ul className='flex flex-row flex-wrap gap-5 max-md:flex-col max-md:items-center  '>
+        <ul className='flex flex-row flex-wrap gap-5 md:flex-row sm:flex-row max-md:flex-col max-md:items-center  '>
           {events && events.length > 0 && events.map((event:IEvent) => (
-            <li key={event.title} className='bg-indigo-950/70 hover:scale-101 transition-all py-2 px-3 rounded-lg'>
+            <li key={event.title}>
               <EventCard {...event} />
             </li>
           ))}

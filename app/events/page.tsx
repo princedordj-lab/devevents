@@ -18,7 +18,7 @@ const EventsPage = async () => {
         {events && events.length > 0 ? (
           <ul className="flex flex-row flex-wrap gap-5 max-md:flex-col max-md:items-center justify-center">
             {events.map((event: IEvent) => (
-              <li key={event.slug} className="bg-indigo-950/70 hover:scale-101 transition-all py-2 px-3 rounded-lg">
+              <li key={event.slug}>
                 <EventCard {...event} />
               </li>
             ))}
