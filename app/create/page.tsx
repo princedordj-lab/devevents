@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
 import { Plus, X, Loader2 } from 'lucide-react';
+import posthog from "posthog-js";
 
 const CreateEventPage = () => {
   const router = useRouter();
@@ -81,10 +82,13 @@ const CreateEventPage = () => {
         throw new Error(data.message || 'Failed to create event');
       }
 
+      posthog.capture("event_created", { event_title: title });
       router.push('/events');
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong');
+      const message = err instanceof Error ? err.message : 'Something went wrong';
+      posthog.capture("event_creation_failed", { error_message: message });
+      setError(message);
     } finally {
       setLoading(false);
     }

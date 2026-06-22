@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { IEvent } from '@/database/event.model'
 import { Calendar, Clock, Computer, MapPin, RefreshCw, Users, House, Notebook } from 'lucide-react'
+import posthog from "posthog-js"
 import Image from 'next/image'
 
 const EventDetailClient = ({ event }: { event: IEvent }) => {
@@ -21,12 +22,25 @@ const EventDetailClient = ({ event }: { event: IEvent }) => {
       });
 
       if (response.ok) {
+        posthog.capture("booking_submitted", {
+          event_slug: event.slug,
+          event_title: event.title,
+          email,
+        });
         setSubmitted(true);
       } else {
         const data = await response.json();
+        posthog.capture("booking_failed", {
+          event_slug: event.slug,
+          error_message: data.message || "Failed to create booking",
+        });
         alert(data.message || "Failed to create booking");
       }
     } catch {
+      posthog.capture("booking_failed", {
+        event_slug: event.slug,
+        error_message: "Unexpected error",
+      });
       alert("An unexpected error occurred. Please try again.");
     } finally {
       setLoading(false);
