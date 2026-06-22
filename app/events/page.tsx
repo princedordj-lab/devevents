@@ -1,12 +1,11 @@
 import EventCard from '@/components/EventCard'
-import { events } from '@/lib/constants'
-
-//const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import { IEvent } from '@/database/event.model'
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const EventsPage = async () => {
  
-  //const response = await fetch(`${BASE_URL}/api/events`, { cache: "no-store" });
- // const { events } = await response.json();
+  const response = await fetch(`${BASE_URL}/api/events`, { cache: "no-store" });
+  const { events } = await response.json();
 
   return (
     <section className="pt-20 px-4">
@@ -18,7 +17,7 @@ const EventsPage = async () => {
       <div className="mt-10">
         {events && events.length > 0 ? (
           <ul className="flex flex-row flex-wrap gap-5 max-md:flex-col max-md:items-center justify-center">
-            {events.map((event) => (
+            {events.map((event: IEvent) => (
               <li key={event.slug} className="bg-indigo-950/70 hover:scale-101 transition-all py-2 px-3 rounded-lg">
                 <EventCard {...event} />
               </li>
