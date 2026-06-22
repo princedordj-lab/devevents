@@ -1,6 +1,6 @@
 import EventCard from '@/components/EventCard'
 import { IEvent } from '@/database/event.model'
-import {events }from '@/lib/constants'
+import {events} from '@/lib/constants'
 
 //const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
