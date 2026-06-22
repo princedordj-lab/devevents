@@ -1,6 +1,5 @@
 import EventCard from '@/components/EventCard'
-import { IEvent } from '@/database/event.model'
-import {events} from '@/lib/constants'
+import { events } from '@/lib/constants'
 
 //const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -19,7 +18,7 @@ const EventsPage = async () => {
       <div className="mt-10">
         {events && events.length > 0 ? (
           <ul className="flex flex-row flex-wrap gap-5 max-md:flex-col max-md:items-center justify-center">
-            {events.map((event: IEvent) => (
+            {events.map((event) => (
               <li key={event.slug} className="bg-indigo-950/70 hover:scale-101 transition-all py-2 px-3 rounded-lg">
                 <EventCard {...event} />
               </li>
